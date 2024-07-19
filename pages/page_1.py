@@ -30,7 +30,7 @@ def select_language():
         st.rerun()
 
 def load_music(audio):
-    audio_path = "test/" + audio
+    audio_path = "song/" + audio
     st.title(audio)
     st.audio(audio_path)
     return audio_path
@@ -41,7 +41,7 @@ def load_list():
     # Simulate data loading delay
     st.write(language.languages[st.session_state.lang_state]['list_song'])
     with st.container(height=250):
-        list_file = os.listdir("test/")
+        list_file = os.listdir("song/")
         selected_item = st.radio(language.languages[st.session_state.lang_state]['select_song'], list_file)
     if selected_item:
         audio = load_music(selected_item)
